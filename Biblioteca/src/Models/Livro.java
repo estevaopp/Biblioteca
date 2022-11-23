@@ -1,7 +1,7 @@
 package Models;
 
 public class Livro extends Item{
-	//<código>;<autor(es)>;<título>;<editora>;<tipo>;<ano de publicação>;<issn>
+	//<cï¿½digo>;<autor(es)>;<tï¿½tulo>;<editora>;<tipo>;<ano de publicaï¿½ï¿½o>;<issn>
 	private String editora;
 	private int anoDePublicacao;
 
@@ -29,9 +29,17 @@ public class Livro extends Item{
 		return this.anoDePublicacao;
 	}
 	
+	//<cï¿½digo>;<autor(es)>;<tï¿½tulo>;<editora>;<tipo>;<ano de publicaï¿½ï¿½o>;<issn>
+	@Override
+	public String toArquivo() {
+		String nomeToArquivo = String.format("%d;%s;%s;%s;%c;%s;%s\n",this.getCodigo(),this.getAutor(),
+				this.getTitulo(),this.editora,this.getTipo(),this.anoDePublicacao,this.getIssn());
+        return nomeToArquivo;
+    }
+	
 	@Override
     public String toString() {
-		String nomeToString = super.toString() + String.format("Ano de Publicação: %s\n",this.anoDePublicacao);
+		String nomeToString = super.toString() + String.format("Ano de Publicaï¿½ï¿½o: %s\n",this.anoDePublicacao);
         return nomeToString;
     }
 }

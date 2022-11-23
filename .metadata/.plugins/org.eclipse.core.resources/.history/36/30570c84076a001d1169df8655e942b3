@@ -1,0 +1,27 @@
+package Arquivos;
+
+import java.io.FileWriter;
+import java.io.PrintWriter;
+
+import Models.*;
+
+public class EscreverEmArquivo {
+	
+	public void Cadastrar(Aluno cadastro) {
+		PrintWriter arquivo = null;
+		try {
+			FileWriter out = new FileWriter("professores.txt",true); 
+			arquivo = new PrintWriter(out);
+
+			arquivo.println(cadastro.toArquivo());
+
+			System.out.printf("Cadastro realizado com sucesso\n");  
+			
+		}catch (Exception e){ 
+			System.out.println(e);
+		}finally{ 
+			arquivo.close();
+		}
+	}
+}
+	

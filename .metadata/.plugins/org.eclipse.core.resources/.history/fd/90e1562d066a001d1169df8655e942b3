@@ -1,0 +1,11 @@
+package Arquivos;
+
+import Models.*;
+
+public class EscreverEmArquivo {
+	
+	public void Escrever(Livro livro) {
+		
+	}
+	
+}

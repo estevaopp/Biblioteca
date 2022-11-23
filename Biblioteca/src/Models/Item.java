@@ -1,7 +1,9 @@
 package Models;
 
+import java.util.Scanner;
+
 public class Item {
-	//<código>;<autor(es)>;<título>;<tipo>;<issn>
+	//<cï¿½digo>;<autor(es)>;<tï¿½tulo>;<tipo>;<issn>
 	private int codigo;
 	private String autor;
 	private String titulo;
@@ -15,6 +17,19 @@ public class Item {
 		this.titulo = titulo;
 		this.tipo = tipo;
 		this.issn = issn;
+	}
+	
+	public Item(Scanner escreva) {
+		System.out.print("Digite a matricula: ");
+		this.codigo = escreva.nextInt();
+		System.out.print("Digite a matricula: ");
+		this.autor = escreva.next();
+		System.out.print("Digite a matricula: ");
+		this.titulo = escreva.next();
+		System.out.print("Digite a matricula: ");
+		this.tipo = escreva.next().charAt(0);
+		System.out.print("Digite a matricula: ");
+		this.issn = escreva.next();
 	}
 	
 	public void setAutor(String autor) {
@@ -57,9 +72,15 @@ public class Item {
 		return this.codigo;
 	}
 	
+	public String toArquivo() {
+		String nomeToArquivo = String.format("%d;%s;%s;%c;%s\n",this.codigo,this.autor,
+				this.titulo,this.tipo,this.issn);
+        return nomeToArquivo;
+    }
+	
 	@Override
     public String toString() {
-		String nomeToString = String.format("\nCódigo: %s\nTitulo: %s\nAutor: %s\n",
+		String nomeToString = String.format("\nCÃ³digo: %s\nTitulo: %s\nAutor: %s\n",
 				this.codigo, this.titulo, this.autor);
         return nomeToString;
     }

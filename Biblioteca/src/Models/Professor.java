@@ -1,7 +1,7 @@
 package Models;
 
 public class Professor extends Pessoa{
-	//<matrícula>;<nome>;<endereço>;<data-ingresso>;<setor>
+	//<matrï¿½cula>;<nome>;<endereï¿½o>;<data-ingresso>;<setor>
 	
 	private String dataIngresso;
 	private String setor;
@@ -29,6 +29,13 @@ public class Professor extends Pessoa{
 	public String getSetor() {
 		return this.setor;
 	}
+	
+	@Override
+	public String toArquivo() {
+		String nomeToArquivo = String.format("%d;%s;%s;%s;%s;%.2f\n",this.getMatricula(),this.getNome(),
+				this.getEndereco(),this.dataIngresso,this.setor);
+        return nomeToArquivo;
+    }
 	
 	@Override
     public String toString() {

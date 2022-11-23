@@ -1,7 +1,9 @@
 package Models;
 
+import java.util.Scanner;
+
 public class Aluno extends Pessoa {
-	//<matrícula>;<nome>;<endereço>;<curso>;<data-ingresso>;<multa>
+	//<matrï¿½cula>;<nome>;<endereï¿½o>;<curso>;<data-ingresso>;<multa>
 	private String dataIngresso;
 	private String curso;
 	private double multa;
@@ -12,6 +14,10 @@ public class Aluno extends Pessoa {
 		this.curso = curso;
 		this.multa = multa;
 		this.dataIngresso = dataIngresso;
+	}
+	
+	public Aluno(Scanner escreva) {
+		super(escreva);
 	}
 	
 	public void setDataIngresso(String dataIngresso) {
@@ -37,6 +43,14 @@ public class Aluno extends Pessoa {
 	public double getMulta() {
 		return this.multa;
 	}
+	
+	@Override
+	public String toArquivo() {
+		String nomeToArquivo = String.format("%d;%s;%s;%s;%s;%.2f\n",this.getMatricula(),this.getNome(),
+				this.getEndereco(),this.curso, this.dataIngresso,this.multa);
+        return nomeToArquivo;
+    }
+	
 	
 	@Override
     public String toString() {

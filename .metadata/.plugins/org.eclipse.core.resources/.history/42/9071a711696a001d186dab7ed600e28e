@@ -1,0 +1,61 @@
+package Models;
+
+import java.util.Scanner;
+
+public class Pessoa {
+	private String nome;
+	private String endereco;
+	private int matricula;
+	
+	public Pessoa(int matricula, String nome, String endereco) {
+		this.matricula = matricula;
+		this.nome = nome;
+		this.endereco = endereco;
+	}
+	
+	public Pessoa(Scanner escreva) {
+		System.out.print("Digite a matricula: ");
+		this.matricula = escreva.nextInt();
+		System.out.print("Digite a matricula: ");
+		this.nome = escreva.next();
+		System.out.print("Digite a matricula: ");
+		this.endereco = escreva.next();
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public String getNome() {
+		return this.nome;
+	}
+	
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	
+	public String getEndereco() {
+		return this.endereco;
+	}
+	
+	public void setMatricula(int matricula) {
+		this.matricula = matricula;
+	}
+	
+	public int getMatricula() {
+		return this.matricula;
+	}
+	
+	public String toArquivo() {
+		String nomeToArquivo = String.format("%d;%s;%s\n",this.getMatricula(),this.getNome(),
+				this.getEndereco());
+        return nomeToArquivo;
+    }
+	
+	
+	@Override
+    public String toString() {
+		String nomeToString = String.format("\nMatricula: %s\nNome: %s\n",this.matricula,this.nome);
+        return nomeToString;
+    }
+}

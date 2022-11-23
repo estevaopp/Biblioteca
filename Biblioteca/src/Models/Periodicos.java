@@ -1,7 +1,7 @@
 package Models;
 
 public class Periodicos extends Item{
-	//<código>;<autor(es)>;<título>;<tipo>;<fator-de-impacto>;<issn>
+	//<cï¿½digo>;<autor(es)>;<tï¿½tulo>;<tipo>;<fator-de-impacto>;<issn>
 		private double fatorDeImpacto;
 
 		
@@ -18,6 +18,14 @@ public class Periodicos extends Item{
 		public double getFatorDeImpacto() {
 			return this.fatorDeImpacto;
 		}
+		
+		//<cï¿½digo>;<autor(es)>;<tï¿½tulo>;<tipo>;<fator-de-impacto>;<issn>
+		@Override
+		public String toArquivo() {
+			String nomeToArquivo = String.format("%d;%s;%s;%c;%d;%s\n",this.getCodigo(),this.getAutor(),
+					this.getTitulo(),this.getTipo(),this.fatorDeImpacto,this.getIssn());
+	        return nomeToArquivo;
+	    }
 		
 		@Override
 	    public String toString() {

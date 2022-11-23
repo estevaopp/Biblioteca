@@ -3,7 +3,7 @@ package Models;
 import java.time.LocalDate;
 
 public class Funcionario extends Pessoa{
-	//<matrícula>;<nome>;<endereço>;<data-ingresso>;<setor>;<senha>;<login>
+	//<matrï¿½cula>;<nome>;<endereï¿½o>;<data-ingresso>;<setor>;<senha>;<login>
 	
 	private String dataIngresso;
 	private String setor;
@@ -59,6 +59,14 @@ public class Funcionario extends Pessoa{
 	public String getLogin() {
 		return this.login;
 	}
+	
+	//<matrï¿½cula>;<nome>;<endereï¿½o>;<data-ingresso>;<setor>;<senha>;<login>
+	@Override
+	public String toArquivo() {
+		String nomeToArquivo = String.format("%d;%s;%s;%s;%s;%s;%s\n",this.getMatricula(),this.getNome(),
+				this.getEndereco(),this.dataIngresso,this.setor,this.senha, this.login);
+        return nomeToArquivo;
+    }
 	
 	@Override
     public String toString() {

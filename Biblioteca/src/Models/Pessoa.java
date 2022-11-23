@@ -1,5 +1,7 @@
 package Models;
 
+import java.util.Scanner;
+
 public class Pessoa {
 	private String nome;
 	private String endereco;
@@ -9,6 +11,15 @@ public class Pessoa {
 		this.matricula = matricula;
 		this.nome = nome;
 		this.endereco = endereco;
+	}
+	
+	public Pessoa(Scanner escreva) {
+		System.out.print("Digite a matricula: ");
+		this.matricula = escreva.nextInt();
+		System.out.print("Digite o nome: ");
+		this.nome = escreva.next();
+		System.out.print("Digite o endereço: ");
+		this.endereco = escreva.next();
 	}
 	
 	public void setNome(String nome) {
@@ -34,6 +45,13 @@ public class Pessoa {
 	public int getMatricula() {
 		return this.matricula;
 	}
+	
+	public String toArquivo() {
+		String nomeToArquivo = String.format("%d;%s;%s\n",this.getMatricula(),this.getNome(),
+				this.getEndereco());
+        return nomeToArquivo;
+    }
+	
 	
 	@Override
     public String toString() {
