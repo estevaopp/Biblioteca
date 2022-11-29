@@ -7,6 +7,10 @@ public class Pessoa {
 	private String endereco;
 	private int matricula;
 	
+	public Pessoa() {
+		
+	}
+	
 	public Pessoa(int matricula, String nome, String endereco) {
 		this.matricula = matricula;
 		this.nome = nome;
@@ -16,10 +20,11 @@ public class Pessoa {
 	public Pessoa(Scanner escreva) {
 		System.out.print("Digite a matricula: ");
 		this.matricula = escreva.nextInt();
+		escreva.nextLine();
 		System.out.print("Digite o nome: ");
-		this.nome = escreva.next();
+		this.nome = escreva.nextLine();
 		System.out.print("Digite o endereço: ");
-		this.endereco = escreva.next();
+		this.endereco = escreva.nextLine();
 	}
 	
 	public void setNome(String nome) {
@@ -46,8 +51,18 @@ public class Pessoa {
 		return this.matricula;
 	}
 	
+	public void Reescrever(Scanner escreva) {
+		System.out.print("Digite a matricula: ");
+		this.matricula = escreva.nextInt();
+		escreva.nextLine();
+		System.out.print("Digite o nome: ");
+		this.nome = escreva.nextLine();
+		System.out.print("Digite o endereço: ");
+		this.endereco = escreva.nextLine();
+	}
+	
 	public String toArquivo() {
-		String nomeToArquivo = String.format("%d;%s;%s\n",this.getMatricula(),this.getNome(),
+		String nomeToArquivo = String.format("%d;%s;%s",this.getMatricula(),this.getNome(),
 				this.getEndereco());
         return nomeToArquivo;
     }
@@ -55,7 +70,8 @@ public class Pessoa {
 	
 	@Override
     public String toString() {
-		String nomeToString = String.format("\nMatricula: %s\nNome: %s\n",this.matricula,this.nome);
+		String nomeToString = String.format("\nMatricula: %s\nNome: %s\nEndereço %s\n",
+				this.matricula,this.nome, this.endereco);
         return nomeToString;
     }
 }

@@ -1,0 +1,70 @@
+package Models;
+
+import java.util.Scanner;
+
+public class Emprestimo {
+	//<código>;<matrícula-cliente>;<matrícula-funcionário>;<data-empréstimo>;<data-devolução>
+	private int codigo;
+	private int matriculaCliente;
+	private int matriculaFuncionario;
+	private String dataEmprestimo;
+	private String dataDevolucao;
+	
+	public Emprestimo(int codigo, int matriculaCliente, int matriculaFuncionario,
+			String dataEmprestimo, String dataDevolucao) {
+		this.codigo = codigo;
+		this.matriculaCliente = matriculaCliente;
+		this.matriculaFuncionario = matriculaFuncionario;
+		this.dataEmprestimo = dataEmprestimo;
+		this.dataDevolucao = dataDevolucao;
+	}
+	
+	public Emprestimo(Scanner escreva) {
+		System.out.print("Digite a data codigo: ");
+		this.codigo =Integer.parseInt(escreva.nextLine());
+		System.out.print("Digite a data matricula cliente: ");
+		this.matriculaCliente =Integer.parseInt(escreva.nextLine());
+		System.out.print("Digite a data matricula funcionario: ");
+		this.matriculaFuncionario =Integer.parseInt(escreva.nextLine());
+		System.out.print("Digite o data emprestimo: ");
+		this.dataEmprestimo = escreva.nextLine();
+		System.out.print("Digite o data devolucao: ");
+		this.dataDevolucao = escreva.nextLine();
+	}
+	
+	public void setDataDevolucao(String dataDevolucao) {
+		this.dataDevolucao = dataDevolucao;
+	}
+	
+	public String getDataIngresso() {
+		return this.dataIngresso;
+	}
+	
+	public void setCurso(String curso) {
+		this.curso = curso;
+	}
+	
+	public String getCurso() {
+		return this.curso;
+	}
+
+	public void setMulta(double multa) {
+		this.multa = multa;
+	}
+
+	public double getMulta() {
+		return this.multa;
+	}
+	
+	public String toArquivo() {
+		String nomeToArquivo = String.format("%d;%s;%s;%s;%s;%.2f",this.getMatricula(),this.getNome(),
+				this.getEndereco(),this.curso, this.dataIngresso,this.multa);
+        return nomeToArquivo;
+    }
+	
+	@Override
+    public String toString() {
+		String nomeToString = super.toString() + String.format("Curso: %s\n Multa: %.2f\n",this.curso, this.multa);
+        return nomeToString;
+    }
+}

@@ -1,6 +1,8 @@
 package Models;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Funcionario extends Pessoa{
 	//<matr�cula>;<nome>;<endere�o>;<data-ingresso>;<setor>;<senha>;<login>
@@ -28,6 +30,22 @@ public class Funcionario extends Pessoa{
 		this.login = login;
 	}
 	
+	public Funcionario(Scanner escreva) {
+		super(escreva);
+		System.out.print("Digite a data ingresso: ");
+		this.dataIngresso = escreva.nextLine();
+		System.out.print("Digite o setor: ");
+		this.setor = escreva.nextLine();
+		System.out.print("Digite o senha: ");
+		this.senha = escreva.nextLine();
+		System.out.print("Digite o login: ");
+		this.login = escreva.nextLine();
+	}
+	
+	public Funcionario() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void setDataIngresso(String dataIngresso) {
 		this.dataIngresso = dataIngresso;
 	}
@@ -60,17 +78,39 @@ public class Funcionario extends Pessoa{
 		return this.login;
 	}
 	
+	public static Funcionario ProcurarLogin(ArrayList<Funcionario> listaDeFuncionario, String login) {
+		Funcionario funcionario = listaDeFuncionario.stream()
+				  .filter((f) -> f.getLogin().toUpperCase() == login)
+				  .findFirst()
+				  .orElse(null);
+		return funcionario;
+	}
+	
+	@Override
+	public void Reescrever(Scanner escreva) {
+		super.Reescrever(escreva);;
+		System.out.print("Digite a data ingresso: ");
+		this.dataIngresso = escreva.nextLine();
+		System.out.print("Digite o setor: ");
+		this.setor = escreva.nextLine();
+		System.out.print("Digite o senha: ");
+		this.senha = escreva.nextLine();
+		System.out.print("Digite o login: ");
+		this.login = escreva.nextLine();
+	}
+	
 	//<matr�cula>;<nome>;<endere�o>;<data-ingresso>;<setor>;<senha>;<login>
 	@Override
 	public String toArquivo() {
-		String nomeToArquivo = String.format("%d;%s;%s;%s;%s;%s;%s\n",this.getMatricula(),this.getNome(),
+		String nomeToArquivo = String.format("%d;%s;%s;%s;%s;%s;%s",this.getMatricula(),this.getNome(),
 				this.getEndereco(),this.dataIngresso,this.setor,this.senha, this.login);
         return nomeToArquivo;
     }
 	
 	@Override
     public String toString() {
-		String nomeToString = super.toString() + String.format("Setor: %s\n",this.setor);
+		String nomeToString = super.toString() + String.format("Setor: %s\n Data Ingresso: %s",
+				this.setor, this.dataIngresso);
         return nomeToString;
     }
 	

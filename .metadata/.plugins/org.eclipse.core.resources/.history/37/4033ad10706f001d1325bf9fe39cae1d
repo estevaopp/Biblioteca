@@ -1,0 +1,153 @@
+package Biblioteca;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import Arquivos.*;
+import Models.*;
+
+public class ProgramaPrincipal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner ler = new Scanner(System.in);
+		Livro novoLivro = new Livro();
+		Periodicos novoPeriodico = new Periodicos();
+		Funcionario novoFuncionario = new Funcionario();
+		Professor novoProfessor = new Professor();
+		Aluno novoAluno = new Aluno();
+		Emprestimo novoEmprestimo = new Emprestimo();
+		ItemEmprestimo novoItemEmprestimo = new ItemEmprestimo();
+		int matricula;
+		ArrayList<Livro> listaDeLivros = new ArrayList<Livro>();
+		ArrayList<Periodicos> listaDePeriodicos = new ArrayList<Periodicos>();
+		ArrayList<Funcionario> listaDeFuncionario = new ArrayList<Funcionario>();
+		ArrayList<Professor> listaDeProfessor = new ArrayList<Professor>();
+		ArrayList<Aluno> listaDeAluno = new ArrayList<Aluno>();
+		ArrayList<Emprestimo> listaDeEmprestimo = new ArrayList<Emprestimo>();
+		String opcao = "";
+		String senha;
+		String login;
+		Funcionario funcionario;
+		
+		
+		
+		do{
+			System.out.print("Digite o login: ");
+			login = ler.nextLine().toUpperCase();
+			LerArquivo.ArquivoDeFuncionario(listaDeFuncionario);
+			funcionario = Funcionario.ProcurarLogin(listaDeFuncionario, login);
+			System.out.print("Digite a senha: ");
+			senha = ler.nextLine().toUpperCase();
+			System.out.println(login);
+			System.out.println(senha=="ADMIN");
+		}while((senha != "ADMIN" && login != "ADMIN"));
+		
+		//(funcionario != null && 
+				//funcionario.getSenha().toUpperCase() != senha && funcionario.getLogin().toUpperCase() != login)
+		
+		listaDeFuncionario.clear();
+		
+		
+		while(opcao != "13") {
+			
+			System.out.println("-------------------");
+			System.out.println("1- Cadastrar livro"); // feito
+			System.out.println("2- Cadastrar periodico"); // feito
+			System.out.println("3- Cadastrar funcionario"); // feito
+			System.out.println("4- Cadastrar professor"); // feito
+			System.out.println("5- Cadastrar Aluno"); // feito
+			System.out.println("6- Fazer emprestimo"); // feito
+			System.out.println("7- Emitir relatório de livros"); // feito
+			System.out.println("8- Emitir relatório de emprestimos"); // feito
+			System.out.println("9- Emitir relatório de funcionarios"); // feito
+			System.out.println("10- Emitir relatório de alunos"); // feito
+			System.out.println("11- Emitir multa individual"); // feito
+			System.out.println("12- Devolver Item"); 
+			System.out.println("13- Sair do programa"); // feito
+			System.out.print("Digite um numero: ");
+			opcao = ler.nextLine();
+			System.out.println("-------------------");
+			System.out.println("");
+			System.out.println("");
+			
+			switch (opcao) {
+			case "1":
+				novoLivro.Reescrever(ler);
+				EscreverEmArquivo.Cadastrar(novoLivro);
+				novoLivro = null;
+				break;
+			case "2":
+				novoPeriodico.Reescrever(ler);
+				System.out.println("");
+				EscreverEmArquivo.Cadastrar(novoPeriodico);
+				break;
+			case "3":
+				novoFuncionario.Reescrever(ler);
+				System.out.println("");
+				EscreverEmArquivo.Cadastrar(novoFuncionario);
+				break;
+			case "4":
+				novoProfessor.Reescrever(ler);
+				System.out.println("");
+				EscreverEmArquivo.Cadastrar(novoProfessor);
+				break;
+			case "5":
+				novoAluno.Reescrever(ler);
+				System.out.println("");
+				EscreverEmArquivo.Cadastrar(novoAluno);
+				break;
+			case "6":
+				novoEmprestimo.Reescrever(ler);
+				System.out.println("");
+				EscreverEmArquivo.Cadastrar(novoEmprestimo);
+				System.out.println("");
+				novoItemEmprestimo.Reescrever(ler);
+				System.out.println("");
+				EscreverEmArquivo.Cadastrar(novoItemEmprestimo);
+				break;
+			case "7":
+				LerArquivo.ArquivoDeLivro(listaDeLivros);
+				EmitirRelatorio.Relatorio(listaDeLivros);
+				listaDeLivros.clear();
+				System.out.println("");
+				break;
+			case "8":
+				LerArquivo.ArquivoDeEmprestimo(listaDeEmprestimo);
+				EmitirRelatorio.Relatorio(listaDeEmprestimo);
+				listaDeEmprestimo.clear();
+				System.out.println("");
+				break;
+			case "9":
+				LerArquivo.ArquivoDeFuncionario(listaDeFuncionario);
+				EmitirRelatorio.Relatorio(listaDeFuncionario);
+				listaDeFuncionario.clear();
+				System.out.println("");
+				break;
+			case "10":
+				LerArquivo.ArquivoDeAluno(listaDeAluno);
+				EmitirRelatorio.Relatorio(listaDeAluno);
+				listaDeAluno.clear();
+				System.out.println("");
+				break;
+			case "11":
+				//emitir multa individual
+				LerArquivo.ArquivoDeAluno(listaDeAluno);
+				System.out.print("Digite a matricula do aluno que quer procurar: ");
+				matricula = ler.nextInt();
+				ler.nextLine();
+				novoAluno = Aluno.ProcurarMatricula(listaDeAluno, matricula);
+				novoAluno.EmitirMulta();
+				break;
+			case "12":
+				//devolver item
+				break;
+			case "13":
+				return;
+			default:
+				System.out.println("Opção invalida");
+				break;
+			}
+		}
+	}
+}

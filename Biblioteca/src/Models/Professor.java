@@ -1,5 +1,7 @@
 package Models;
 
+import java.util.Scanner;
+
 public class Professor extends Pessoa{
 	//<matr�cula>;<nome>;<endere�o>;<data-ingresso>;<setor>
 	
@@ -14,6 +16,18 @@ public class Professor extends Pessoa{
 		this.setor = setor;
 	}
 	
+	public Professor(Scanner escreva) {
+		super(escreva);
+		System.out.print("Digite a data ingresso: ");
+		this.dataIngresso = escreva.nextLine();
+		System.out.print("Digite o setor: ");
+		this.setor = escreva.nextLine();
+	}
+	
+	public Professor() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public void setDataIngresso(String dataIngresso) {
 		this.dataIngresso = dataIngresso;
 	}
@@ -31,15 +45,25 @@ public class Professor extends Pessoa{
 	}
 	
 	@Override
+	public void Reescrever(Scanner escreva) {
+		super.Reescrever(escreva);;
+		System.out.print("Digite a data ingresso: ");
+		this.dataIngresso = escreva.nextLine();
+		System.out.print("Digite o setor: ");
+		this.setor = escreva.nextLine();
+	}
+	
+	@Override
 	public String toArquivo() {
-		String nomeToArquivo = String.format("%d;%s;%s;%s;%s;%.2f\n",this.getMatricula(),this.getNome(),
+		String nomeToArquivo = String.format("%d;%s;%s;%s;%s;%.2f",this.getMatricula(),this.getNome(),
 				this.getEndereco(),this.dataIngresso,this.setor);
         return nomeToArquivo;
     }
 	
 	@Override
     public String toString() {
-		String nomeToString = super.toString() + String.format("Setor: %s\n",this.setor);
+		String nomeToString = super.toString() + String.format("Setor: %s\nData Ingresso: %s\n",
+				this.setor, this.dataIngresso);
         return nomeToString;
     }
 

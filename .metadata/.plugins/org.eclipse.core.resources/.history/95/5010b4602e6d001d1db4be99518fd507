@@ -1,0 +1,74 @@
+package Models;
+
+import java.util.Scanner;
+
+public class ItemEmprestimo {
+	//<código-item>;<código-empréstimo>;<código-livro>;<código-periódico>;<data-devolução>
+	private int codigoItem;
+	private int codigoEmprestimo;
+	private int codigoLivro;
+	private int codigoPeriodico;
+	private String dataDevolucao;
+	
+	public ItemEmprestimo(int codigoItem, int codigoEmprestimo, int codigoLivro,
+			int codigoPeriodico, String dataDevolucao) {
+		this.codigoItem = codigoItem;
+		this.codigoEmprestimo = codigoEmprestimo;
+		this.codigoLivro = codigoLivro;
+		this.codigoPeriodico = codigoPeriodico;
+		this.dataDevolucao = dataDevolucao;
+	}
+	
+	public Emprestimo(Scanner escreva) {
+		System.out.print("Digite a data codigo item: ");
+		this.codigoItem =Integer.parseInt(escreva.nextLine());
+		System.out.print("Digite a data matricula codigo emprestimo: ");
+		this.codigoEmprestimo =Integer.parseInt(escreva.nextLine());
+		System.out.print("Digite a data matricula codigo livro: ");
+		this.codigoLivro =Integer.parseInt(escreva.nextLine());
+		System.out.print("Digite o data codigo periodico: ");
+		this.codigoPeriodico = Integer.parseInt(escreva.nextLine());
+		System.out.print("Digite o data devolucao: ");
+		this.dataDevolucao = escreva.nextLine();
+	}
+	
+	public void setDataDevolucao(String dataDevolucao) {
+		this.dataDevolucao = dataDevolucao;
+	}
+	
+	public String getDataDevolucao() {
+		return this.dataDevolucao;
+	}
+		
+	public int getDataCodigoItem() {
+		return this.codigoItem;
+	}
+
+	public int getCodigo() {
+		return this.codigo;
+	}
+	
+	public int getMatriculaCliente() {
+		return this.matriculaCliente;
+	}
+	
+	public int getMatriculaFuncionario() {
+		return this.matriculaFuncionario;
+	}
+	
+	//<código>;<matrícula-cliente>;<matrícula-funcionário>;<data-empréstimo>;<data-devolução>
+	public String toArquivo() {
+		String nomeToArquivo = String.format("%d;%d;%d;%s;%s",this.codigo,this.matriculaCliente,
+				this.matriculaFuncionario,this.dataEmprestimo, this.dataDevolucao);
+        return nomeToArquivo;
+    }
+	
+	@Override
+    public String toString() {
+		String nomeToString = String.format("Curso: %d\n Matricula Cliente: %d\n Matricula Funcionario: %d\n"
+				+ "Data de Emprestimo: %s\n Data de Devolução: %s\n\n",
+				this.codigo, this.matriculaCliente,this.matriculaFuncionario,
+				this.dataEmprestimo, this.dataDevolucao);
+        return nomeToString;
+    }
+}

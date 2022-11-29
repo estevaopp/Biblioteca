@@ -1,0 +1,18 @@
+package Arquivos;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import Models.*;
+
+public class LerArquivo {
+	
+	public ArrayList<Livro> ArquivoDeLivro(){
+		ArrayList<Livro> listaDeLivros = new ArrayList<Livro>();
+		
+		return listaDeLivros;
+	}
+	
+}

@@ -1,0 +1,2 @@
+1;steve;rua jose pena, praia da costa;ti;25/10/2001;0,00
+2;Roberto;Rua francisco joao, vereador rosa;marketing;23/05/2022;5,00

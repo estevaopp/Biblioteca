@@ -1,0 +1,61 @@
+package Arquivos;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import Models.*;
+
+public class LerArquivo {
+	
+	public void ArquivoDeLivro(ArrayList<Livro> lista){
+		Scanner arquivo = null;
+		try {
+			String linha = "";
+			FileReader nomeArq = new FileReader("livros.txt");
+			arquivo = new Scanner(nomeArq);
+			//Fazemos um loop linha a linha no arquivo,
+			// enquanto existir uma pr�xima linha.
+			while(arquivo.hasNext())			
+			{
+				//faz algo com a linha
+				linha = arquivo.nextLine();
+				String array[] = new String[7];
+				//<c�digo>;<autor(es)>;<t�tulo>;<editora>;<tipo>;<ano de publica��o>;<issn>
+				Livro livro = new Livro(Integer.parseInt(array[0]), array[1], array[2], array[3],
+						array[4].charAt(0), Integer.parseInt(array[5]), array[6]);
+				lista.add(livro);
+			}
+		} catch (Exception e) { 
+			System.out.println(e);
+		} finally { 
+			arquivo.close();
+		}
+	}
+	
+	public void ArquivoDeFuncionario(ArrayList<Funcionario> lista){
+		Scanner arquivo = null;
+		try {
+			String linha = "";
+			FileReader nomeArq = new FileReader("livros.txt");
+			arquivo = new Scanner(nomeArq);
+			//Fazemos um loop linha a linha no arquivo,
+			// enquanto existir uma pr�xima linha.
+			while(arquivo.hasNext())			
+			{
+				//faz algo com a linha
+				linha = arquivo.nextLine();
+				String array[] = new String[7];
+				//<c�digo>;<autor(es)>;<t�tulo>;<editora>;<tipo>;<ano de publica��o>;<issn>
+				Livro livro = new Livro(Integer.parseInt(array[0]), array[1], array[2], array[3],
+						array[4].charAt(0), Integer.parseInt(array[5]), array[6]);
+				listaDeLivros.add(Funcionario);
+			}
+		} catch (Exception e) { 
+			System.out.println(e);
+		} finally { 
+			arquivo.close();
+		}
+	}
+}

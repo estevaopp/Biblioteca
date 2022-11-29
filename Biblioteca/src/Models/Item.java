@@ -10,6 +10,9 @@ public class Item {
 	private char tipo;
 	private String issn;
 	
+	public Item() {
+
+	}
 	
 	public Item(int codigo, String autor, String titulo, char tipo, String issn) {
 		this.codigo = codigo;
@@ -22,14 +25,29 @@ public class Item {
 	public Item(Scanner escreva) {
 		System.out.print("Digite a matricula: ");
 		this.codigo = escreva.nextInt();
+		escreva.nextLine();
+		System.out.print("Digite o autor: ");
+		this.autor = escreva.nextLine();
+		System.out.print("Digite o titulo: ");
+		this.titulo = escreva.nextLine();
+		System.out.print("Digite o tipo: ");
+		this.tipo = escreva.nextLine().charAt(0);
+		System.out.print("Digite o issn: ");
+		this.issn = escreva.nextLine();
+	}
+	
+	public void Reescrever(Scanner escreva) {
 		System.out.print("Digite a matricula: ");
-		this.autor = escreva.next();
-		System.out.print("Digite a matricula: ");
-		this.titulo = escreva.next();
-		System.out.print("Digite a matricula: ");
-		this.tipo = escreva.next().charAt(0);
-		System.out.print("Digite a matricula: ");
-		this.issn = escreva.next();
+		this.codigo = escreva.nextInt();
+		escreva.nextLine();
+		System.out.print("Digite o autor: ");
+		this.autor = escreva.nextLine();
+		System.out.print("Digite o titulo: ");
+		this.titulo = escreva.nextLine();
+		System.out.print("Digite o tipo: ");
+		this.tipo = escreva.nextLine().charAt(0);
+		System.out.print("Digite o issn: ");
+		this.issn = escreva.nextLine();
 	}
 	
 	public void setAutor(String autor) {
@@ -73,15 +91,15 @@ public class Item {
 	}
 	
 	public String toArquivo() {
-		String nomeToArquivo = String.format("%d;%s;%s;%c;%s\n",this.codigo,this.autor,
+		String nomeToArquivo = String.format("%d;%s;%s;%c;%s",this.codigo,this.autor,
 				this.titulo,this.tipo,this.issn);
         return nomeToArquivo;
     }
 	
 	@Override
     public String toString() {
-		String nomeToString = String.format("\nCódigo: %s\nTitulo: %s\nAutor: %s\n",
-				this.codigo, this.titulo, this.autor);
+		String nomeToString = String.format("\nCódigo: %s\nTitulo: %s\nAutor: %s\nTipo: %c\nISSN: %s",
+				this.codigo, this.titulo, this.autor, this.tipo, this.issn);
         return nomeToString;
     }
 }

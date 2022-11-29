@@ -1,0 +1,8 @@
+package Arquivos;
+
+public class Relatorio {
+	
+	public static void Emitir() {
+		
+	}
+}
