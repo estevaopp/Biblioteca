@@ -20,15 +20,15 @@ public class Emprestimo {
 	}
 	
 	public Emprestimo(Scanner escreva) {
-		System.out.print("Digite a data codigo: ");
+		System.out.print("Digite o codigo do emprestimo: ");
 		this.codigo =Integer.parseInt(escreva.nextLine());
-		System.out.print("Digite a data matricula cliente: ");
+		System.out.print("Digite a matricula cliente: ");
 		this.matriculaCliente =Integer.parseInt(escreva.nextLine());
-		System.out.print("Digite a data matricula funcionario: ");
+		System.out.print("Digite a matricula funcionario: ");
 		this.matriculaFuncionario =Integer.parseInt(escreva.nextLine());
-		System.out.print("Digite o data emprestimo: ");
+		System.out.print("Digite o emprestimo: ");
 		this.dataEmprestimo = escreva.nextLine();
-		System.out.print("Digite o data devolucao: ");
+		System.out.print("Digite a data devolucao: ");
 		this.dataDevolucao = escreva.nextLine();
 	}
 	
@@ -65,15 +65,15 @@ public class Emprestimo {
 	}
 	
 	public void Reescrever(Scanner escreva) {
-		System.out.print("Digite a data codigo: ");
+		System.out.print("Digite o codigo do emprestimo: ");
 		this.codigo =Integer.parseInt(escreva.nextLine());
-		System.out.print("Digite a data matricula cliente: ");
+		System.out.print("Digite a matricula cliente: ");
 		this.matriculaCliente =Integer.parseInt(escreva.nextLine());
-		System.out.print("Digite a data matricula funcionario: ");
+		System.out.print("Digite a matricula funcionario: ");
 		this.matriculaFuncionario =Integer.parseInt(escreva.nextLine());
-		System.out.print("Digite o data emprestimo: ");
+		System.out.print("Digite o emprestimo: ");
 		this.dataEmprestimo = escreva.nextLine();
-		System.out.print("Digite o data devolucao: ");
+		System.out.print("Digite a data devolucao: ");
 		this.dataDevolucao = escreva.nextLine();
 	}
 	

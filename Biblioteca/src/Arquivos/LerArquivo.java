@@ -122,7 +122,6 @@ public class LerArquivo {
 			{
 				//faz algo com a linha
 				linha = arquivo.nextLine();
-				System.out.println(linha);
 				String array[] = new String[6];
 				array = linha.split(";");
 				//<matr�cula>;<nome>;<endere�o>;<curso>;<data-ingresso>;<multa>
@@ -141,7 +140,7 @@ public class LerArquivo {
 		Scanner arquivo = null;
 		try {
 			String linha = "";
-			FileReader nomeArq = new FileReader("emprestimos.txt");
+			FileReader nomeArq = new FileReader("emprestimo.txt");
 			arquivo = new Scanner(nomeArq);
 			//Fazemos um loop linha a linha no arquivo,
 			// enquanto existir uma pr�xima linha.
@@ -167,7 +166,7 @@ public class LerArquivo {
 		Scanner arquivo = null;
 		try {
 			String linha = "";
-			FileReader nomeArq = new FileReader("itemEmprestimo.txt");
+			FileReader nomeArq = new FileReader("itensDeEmprestimo.txt");
 			arquivo = new Scanner(nomeArq);
 			//Fazemos um loop linha a linha no arquivo,
 			// enquanto existir uma pr�xima linha.

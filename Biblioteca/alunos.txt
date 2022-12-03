@@ -1,2 +1,5 @@
-1;steve;rua jose pena, praia da costa;ti;25/10/2001;0,00
 2;Roberto;Rua francisco joao, vereador rosa;marketing;23/05/2022;5,00
+3;weverton;viana;ti;05/10/2022;0,00
+4;mayra;25/10/2001;ti;rua jorge;2,00
+5;matheus;nunca dorme[;pscicologia;10/10/10;1000,00
+1;steve;rua jose pena, praia da costa;ti;25/10/2001;5,00

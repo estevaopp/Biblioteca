@@ -80,7 +80,7 @@ public class Funcionario extends Pessoa{
 	
 	public static Funcionario ProcurarLogin(ArrayList<Funcionario> listaDeFuncionario, String login) {
 		Funcionario funcionario = listaDeFuncionario.stream()
-				  .filter((f) -> f.getLogin().toUpperCase() == login)
+				  .filter((f) -> f.getLogin().compareTo(login) == 0)
 				  .findFirst()
 				  .orElse(null);
 		return funcionario;

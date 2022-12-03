@@ -1,8 +1,0 @@
-package Arquivos;
-
-public class EmitirRelatorio {
-	
-	public static void LivrosCadastrados() {
-		ArrayList<String> 
-	}
-}

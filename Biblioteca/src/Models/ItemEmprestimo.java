@@ -21,13 +21,13 @@ public class ItemEmprestimo {
 	}
 	
 	public ItemEmprestimo(Scanner escreva) {
-		System.out.print("Digite a data codigo item: ");
+		System.out.print("Digite o codigo item: ");
 		this.codigoItem =Integer.parseInt(escreva.nextLine());
-		System.out.print("Digite a data matricula codigo emprestimo: ");
+		System.out.print("Digite a matricula codigo emprestimo: ");
 		this.codigoEmprestimo =Integer.parseInt(escreva.nextLine());
-		System.out.print("Digite a data matricula codigo livro: ");
+		System.out.print("Digite a matricula codigo livro: ");
 		this.codigoLivro =Integer.parseInt(escreva.nextLine());
-		System.out.print("Digite o data codigo periodico: ");
+		System.out.print("Digite o codigo periodico: ");
 		this.codigoPeriodico = Integer.parseInt(escreva.nextLine());
 		System.out.print("Digite o data devolucao: ");
 		this.dataDevolucao = escreva.nextLine();
@@ -70,13 +70,13 @@ public class ItemEmprestimo {
 	}
 	
 	public void Reescrever(Scanner escreva) {
-		System.out.print("Digite a data codigo item: ");
+		System.out.print("Digite o codigo item: ");
 		this.codigoItem =Integer.parseInt(escreva.nextLine());
-		System.out.print("Digite a data matricula codigo emprestimo: ");
+		System.out.print("Digite a matricula codigo emprestimo: ");
 		this.codigoEmprestimo =Integer.parseInt(escreva.nextLine());
-		System.out.print("Digite a data matricula codigo livro: ");
+		System.out.print("Digite a matricula codigo livro: ");
 		this.codigoLivro =Integer.parseInt(escreva.nextLine());
-		System.out.print("Digite o data codigo periodico: ");
+		System.out.print("Digite o codigo periodico: ");
 		this.codigoPeriodico = Integer.parseInt(escreva.nextLine());
 		System.out.print("Digite o data devolucao: ");
 		this.dataDevolucao = escreva.nextLine();

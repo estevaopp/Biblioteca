@@ -7,7 +7,7 @@ import Arquivos.*;
 import Models.*;
 
 public class ProgramaPrincipal {
-
+	// Estêvão Paulo Pereira, Mayra, Matheus dos Santos Neto
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner ler = new Scanner(System.in);
@@ -33,18 +33,26 @@ public class ProgramaPrincipal {
 		Funcionario funcionario;
 		
 		
-		
 		do{
 			System.out.print("Digite o login: ");
-			login = ler.nextLine().toUpperCase();
+			login = ler.nextLine();
 			LerArquivo.ArquivoDeFuncionario(listaDeFuncionario);
 			funcionario = Funcionario.ProcurarLogin(listaDeFuncionario, login);
 			System.out.print("Digite a senha: ");
-			senha = ler.nextLine().toUpperCase();
-		}while((senha.compareTo("ADMIN") != 0 && login.compareTo("ADMIN") != 0) ||
-				(funcionario != null && 
-				funcionario.getSenha().toUpperCase().compareTo(senha) != 0 &&
-				funcionario.getLogin().toUpperCase().compareTo(login) != 0));
+			senha = ler.nextLine();
+			
+			
+			if (senha.compareTo("admin") == 0 && login.compareTo("admin") == 0) {
+				break;
+			}
+			if (funcionario != null) {
+				if (funcionario.getSenha().compareTo(senha) == 0 && funcionario.getLogin().compareTo(login) == 0) {
+					break;
+				}
+			}
+			
+			System.out.println("Senha invalida ou login invalido");
+		}while(true);
 		
 		listaDeFuncionario.clear();
 		
@@ -73,8 +81,8 @@ public class ProgramaPrincipal {
 			switch (opcao) {
 			case "1":
 				novoLivro.Reescrever(ler);
+				System.out.println("");
 				EscreverEmArquivo.Cadastrar(novoLivro);
-				novoLivro = null;
 				break;
 			case "2":
 				novoPeriodico.Reescrever(ler);
@@ -159,9 +167,10 @@ public class ProgramaPrincipal {
 				novoItemEmprestimo = ItemEmprestimo.ProcurarCodigoEmprestimo(listaDeItemEmprestimo, codigoEmprestimo);
 				listaDeItemEmprestimo.remove(listaDeItemEmprestimo.indexOf(novoItemEmprestimo));
 				EscreverEmArquivo.EscreverDoInicioItemEmprestimo(listaDeItemEmprestimo);
+				System.out.println();
 				System.out.print("Aluno entregou o livro atrasado (S/N)? ");
 				opcao = ler.nextLine().toUpperCase();
-				if(opcao == "S" || opcao == "SIM") {
+				if(opcao.compareTo("S") == 0 || opcao.compareTo("SIM") == 0) {
 					LerArquivo.ArquivoDeAluno(listaDeAluno);
 					System.out.print("Digite a matricula do aluno que quer procurar: ");
 					matricula = ler.nextInt();
