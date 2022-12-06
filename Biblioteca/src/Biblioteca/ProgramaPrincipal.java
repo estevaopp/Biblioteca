@@ -71,7 +71,7 @@ public class ProgramaPrincipal {
 			System.out.println("10- Emitir relatório de alunos"); // feito
 			System.out.println("11- Emitir multa individual"); // feito
 			System.out.println("12- Devolver Item aqui foi pelo git"); // feito
-			System.out.println("13- Sair do programa alterei aqui"); // feito
+			System.out.println("13- Sair do programa alterei aqui de novo"); // feito
 			System.out.print("Digite um numero: ");
 			opcao = ler.nextLine();
 			System.out.println("-------------------");
